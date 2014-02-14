@@ -13,6 +13,7 @@ namespace hgp10{
 	std::shared_ptr<fourier_transform> Create_fast_fourier_transform_taskgroup();
 	std::shared_ptr<fourier_transform> Create_fast_fourier_transform_parfor();
 	std::shared_ptr<fourier_transform> Create_fast_fourier_transform_combined();
+	std::shared_ptr<fourier_transform> Create_fast_fourier_transform_opt();
 }
 
 
@@ -29,6 +30,7 @@ void fourier_transform::RegisterDefaultFactories()
 	RegisterTransformFactory("hpce.hgp10.fast_fourier_transform_taskgroup", hpce::hgp10::Create_fast_fourier_transform_taskgroup);
 	RegisterTransformFactory("hpce.hgp10.fast_fourier_transform_parfor", hpce::hgp10::Create_fast_fourier_transform_parfor);
 	RegisterTransformFactory("hpce.hgp10.fast_fourier_transform_combined", hpce::hgp10::Create_fast_fourier_transform_combined);
+	RegisterTransformFactory("hpce.hgp10.fast_fourier_transform_opt", hpce::hgp10::Create_fast_fourier_transform_opt);
 }
 	
 }; // namespace hpce
