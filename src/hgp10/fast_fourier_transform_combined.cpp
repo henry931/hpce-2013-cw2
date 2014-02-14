@@ -109,7 +109,7 @@ namespace hpce
 
 		public:
 			virtual std::string name() const
-			{ return "hpce.fast_fourier_transform_combined"; }
+			{ return "hpce.hgp10.fast_fourier_transform_combined"; }
 
 			virtual bool is_quadratic() const
 			{ return false; }

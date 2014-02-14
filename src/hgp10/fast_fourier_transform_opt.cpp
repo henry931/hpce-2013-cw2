@@ -39,6 +39,28 @@ namespace hpce
 				}else if (n == 2){
 					pOut[0] = pIn[0]+pIn[sIn];
 					pOut[sOut] = pIn[0]-pIn[sIn];
+				}else if (n == 4){
+
+					// Basically just copied the rest of the program and simplified
+					// So this is now the base case
+					std::complex<double> temp;
+
+					pOut[0] = pIn[0]+pIn[2*sIn];
+					pOut[sOut] = pIn[0]-pIn[2*sIn];
+
+					(pOut+sOut*2)[0] = (pIn+sIn)[0]+(pIn+sIn)[2*sIn];
+					(pOut+sOut*2)[sOut] = (pIn+sIn)[0]-(pIn+sIn)[2*sIn];
+
+					temp = pOut[0]-pOut[2];
+
+					pOut[0] = pOut[0]+pOut[2];
+					pOut[2] = temp;
+
+					temp = pOut[1]-wn*pOut[3];
+
+					pOut[1] = pOut[1]+wn*pOut[3]; 
+					pOut[3] = temp;
+
 				}else{
 					size_t m = n/2;
 
@@ -127,7 +149,7 @@ namespace hpce
 
 		public:
 			virtual std::string name() const
-			{ return "hpce.fast_fourier_transform_opt"; }
+			{ return "hpce.hgp10.fast_fourier_transform_opt"; }
 
 			virtual bool is_quadratic() const
 			{ return false; }
