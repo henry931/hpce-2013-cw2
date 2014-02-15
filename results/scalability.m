@@ -171,7 +171,7 @@ close all;
 
 fig1 = figure;
 plot(P,dft,P,hgp10_dft_p,'LineWidth',2);
-title('Relative performance compared to DFT(1 Core) versus DFT length (Win 8.1, VC11, 64 bit, i7-4770k @ 4.2GHz)')
+title('Relative performance compared to DFT(1 Core) versus Processor count (Win 8.1, VC11, 64 bit, i7-4770k @ 4.2GHz)')
 ylabel('Relative Performance / no units')
 xlabel('Number of cores (p) utilised (Hyperthreaded)') 
 legend('DFT', 'DFT Parfor')
@@ -180,7 +180,7 @@ grid on
 
 fig2 = figure;
 plot(P,fft,P,hgp10_fft_t,P,hgp10_fft_p,P,hgp10_fft_c,P,hgp10_fft_o,'LineWidth',2);
-title('Relative performance compared to FFT(1 Core) versus FFT length (Win 8.1, VC11, 64 bit, i7-4770k @ 4.2GHz)')
+title('Relative performance compared to FFT(1 Core) versus Processor count (Win 8.1, VC11, 64 bit, i7-4770k @ 4.2GHz)')
 ylabel('Relative Performance / no units')
 xlabel('Number of cores (p) utilised (Hyperthreaded)') 
 legend('FFT', 'FFT Taskgroup', 'FFT Parfor', 'FFT Combined', 'FFT Opt')
@@ -188,8 +188,8 @@ legend('Location','NorthWest')
 grid on
 text(0,0,'*Note DFT and FFT cannot be directly compared as relative performance varies with n. i.e. one is ')
 
-print(fig1,'-dpdf','.\pdf\hgp_scalability_dft.pdf')
-print(fig2,'-dpdf','.\pdf\hgp_scalability.pdf')
+print(fig1,'-dpdf','.\pdf\hgp10_scalability_dft.pdf')
+print(fig2,'-dpdf','.\pdf\hgp10_scalability.pdf')
 
 % Clear workspace (!)
 clear all
