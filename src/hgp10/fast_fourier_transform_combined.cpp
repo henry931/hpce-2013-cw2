@@ -61,7 +61,8 @@ namespace hpce
 
 					// K is the number of inner loops to use.
 					// Decreasing K increases parallelism
-					size_t K = 8;// = something that divides m;
+					// Best on this machine
+					size_t K = 1024;
 
 					// At some point m will reach K
 					// So we need to make K track it

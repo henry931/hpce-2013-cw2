@@ -83,15 +83,8 @@ namespace hpce
 
 					// K is the number of inner loops to use.
 					// Decreasing K increases parallelism
-					size_t K = 256;// = something that divides m;
-
-					/*
-					// At some point m will reach K
-					// So we need to make K track it
-					while ( K > m) {
-					K = K / 2;
-					}
-					*/
+					// Best on this machine
+					size_t K = 1024;
 
 					// This stops splitting and also gets rid of the while loop
 					if ( m <= K) {

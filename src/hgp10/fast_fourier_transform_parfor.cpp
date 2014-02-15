@@ -46,12 +46,18 @@ namespace hpce
 
 					// K is the number of inner loops to use.
 					// Decreasing K increases parallelism
-					size_t K = 8;// = something that divides m;
+					// Fastest on this machine;
+					size_t K = 1024;
 
 					// At some point m will reach K
 					// So we need to make K track it
 					while ( K > m) {
+						// Use inner loop
 						K = K / 2;
+
+						// Use outer (parfor) loop
+						// Much slower
+						//K = 1;
 					}
 
 					tbb::parallel_for<size_t>(0u, m/K, 1, [=](size_t j0){
@@ -94,7 +100,7 @@ namespace hpce
 
 		public:
 			virtual std::string name() const
-			{ return "hpce.hgp10.fast_fourier_transform"; }
+			{ return "hpce.hgp10.fast_fourier_transform_parfor"; }
 
 			virtual bool is_quadratic() const
 			{ return false; }
