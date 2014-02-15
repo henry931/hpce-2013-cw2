@@ -186,7 +186,7 @@ xlabel('Number of cores (p) utilised (Hyperthreaded)')
 legend('FFT', 'FFT Taskgroup', 'FFT Parfor', 'FFT Combined', 'FFT Opt')
 legend('Location','NorthWest')
 grid on
-text(0,0,'*Note DFT and FFT cannot be directly compared as relative performance varies with n. i.e. one is ')
+text(0,0,'*Note DFT and FFT cannot be directly compared as relative performance varies with n.')
 
 print(fig1,'-dpdf','.\pdf\hgp10_scalability_dft.pdf')
 print(fig2,'-dpdf','.\pdf\hgp10_scalability.pdf')
